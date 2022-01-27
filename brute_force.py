@@ -2,7 +2,7 @@ from runoff import MyFirstModel
 import os
 from spotpy.objectivefunctions import mae
 from spotpy.parameter import Uniform, Normal
-from spotpy.objectivefunctions import mae
+from spotpy.objectivefunctions import mse
 from runoff import MyFirstModel
 import os
 from pcraster import *
@@ -55,7 +55,7 @@ for i in range(0,5):
                     dynamicModel.setQuiet()
                     dynamicModel.run()
                     data = myModel.simulation
-                    like = mae(evaluation(), data[366:])
+                    like = mse(evaluation(), data[366:])
                     outcomes.append([i,j,k,m,like])
                   
 textfile = open("a_file.txt", "w")
